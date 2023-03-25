@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#currencies">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div class="collapse navbar-collapse" id="currencies">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">ETH1</a></li>
+                <li><a href="#">ERC20</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-3 sidenav">
+        </div>
+
+        <div id="main_container" class="row col-sm-6 text-left">
+            <div id="general_container" class="row col-xs-12">
+                <h2 class="currency_symbol">ETH1</h2>
+                <p class="title">Balance:</p><i id="balance_text">---</i> <i class="currency_symbol">ETH</i>
+            </div>
+            <!-- address : string, qr code-->
+            <div id="receive_container" class="row container col-xs-12">
+                <h3 class="col-xs-12">Receive:</h3>
+
+                <div id="address_container" class="col-xs-6">
+                    <p class="title">Address: </p><i id="address_text">0x3792990...6cDf6fD08451F</i>
+                </div>
+                <div id="qrcode" class="col-xs-6"></div>
+
+            </div>
+            <!-- send: 2 inputs and button -->
+            <div id="send_container" class="row container col-xs-12">
+                <h3>Send</h3>
+                <div id="send_inputs">
+                    <input id="send_receiver" placeholder="Receiver">
+                    <input id="send_amount" placeholder="Amount">
+                </div>
+                <div id="send_button_container">
+                    <button id="send_button" class="btn">SEND</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-sm-3 sidenav">
+        </div>
+    </div>
+</div>
+<script src="./main.js"></script>
+<footer class="container-fluid text-center">
+
+</footer>
+
+</body>
+</html>

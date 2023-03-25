@@ -1,0 +1,74 @@
+input{
+    color:black;
+}
+html, body{
+    font-size:24px;
+    font-weight: 300;
+    color:white;
+    background-image:url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+}
+.navbar-nav .active {
+    background-color: #e6e6ff !important;
+    color:white !important;
+}
+
+#main_container{
+    border:1px solid #e6e6ff;
+    border-radius: 1%;
+    background: #101010;
+    padding: 20px;
+}
+p,i{
+
+}
+
+hr{
+    display: block;
+}
+.title{
+    display: inline;
+    margin-right: 10px;
+}
+.row{
+    padding: 20px;
+    border-bottom: 1px solid white;
+}
+#send_container{
+    border-bottom: none;
+}
+#send_container div{
+    margin-top:10px;
+}
+#send_container input{
+    width: 49%;
+}
+
+.send_button_container{
+    text-align: center;
+}
+
+#qrcode {
+
+    margin-top:15px;
+}
+#qrcode img {
+    width:inherit;
+    float: right;
+}
+.btn{
+   width:100%;
+    color:white;
+    border-radius: 3px;
+    background: black;
+    border:1px solid #e6e6ff;
+    margin:auto;
+}
+
+.btn:hover{
+    color:black;
+    background: #e6e6ff;
+    border:1px solid black;
+}
