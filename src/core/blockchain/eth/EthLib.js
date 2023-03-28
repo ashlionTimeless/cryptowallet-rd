@@ -35,10 +35,20 @@ class EthLib{
         })
     }
 
-    getBalance(){
+    getCurrentBalance(){
         return new Promise(async(resolve,reject)=>{
             try{
                 let address = await this.getAddress();
+                let balance =await this.getBalance(address);
+                return resolve(balance);
+            }catch (e){
+                return reject(e);
+            }
+        })
+    }
+    getBalance(address){
+        return new Promise(async(resolve,reject)=>{
+            try{
                 let balance =await this.web3.eth.getBalance(address);
                 balance = this.web3.utils.fromWei(balance);
                 return resolve(balance);
@@ -70,9 +80,7 @@ class EthLib{
 
                 let gasPrice = this.getGasPrice();
                 let gasLimit = this.getGasLimit();
-                console.log("_formatTransactionParams start value",value);
                 value = this.fromDecimals(value);
-                console.log("_formatTransactionParams end value",value);
                 let txParams = {
                     "from":from,
                     "to":to,
@@ -137,7 +145,5 @@ class EthLib{
             }
         });
     }
-
-
 }
 module.exports = EthLib;

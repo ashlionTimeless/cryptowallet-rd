@@ -7,21 +7,23 @@ const BlockchainService = require('./core/blockchain/BlockchainService');
 class Application{
 
     constructor() {
+        this.setCurrency(CURRENCY);
         this.walletUi = new WalletUi(this);
-        this.blockchain = new BlockchainService();
+        this.blockchain = new BlockchainService(this);
     }
 
+    changeCurrency(currency){
+        this.setCurrency(currency);
+        this.prepareInterface();
+    }
     prepareInterface(){
         this.walletUi.prepareInterface();
     }
-    changeCurrency(){
 
-    }
-
-    getBalance(){
+    getCurrentBalance(){
         return new Promise(async(resolve,reject)=>{
             try{
-                let balance =await this.blockchain.getBalance();
+                let balance =await this.blockchain.getCurrentBalance();
                 return resolve(balance);
             }catch (e){
                 return reject(e);
@@ -39,8 +41,12 @@ class Application{
             }
         })
     }
+
+    setCurrency(currency){
+        this.currency=currency;
+    }
     getCurrency(){
-        return CURRENCY;
+        return this.currency;
     }
 
     sendCurrency(to,amount){

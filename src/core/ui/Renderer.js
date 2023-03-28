@@ -18,7 +18,7 @@ class Renderer{
 
     renderBalance(){
         let element = document.getElementById("balance_text");
-        this.app.getBalance().then((balance)=>{
+        this.app.getCurrentBalance().then((balance)=>{
             element.innerHTML=balance;
         });
     }
