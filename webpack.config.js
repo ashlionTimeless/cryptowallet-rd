@@ -1,7 +1,7 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 var webpack = require('webpack');
 const path = require('path');
-
+const Dotenv = require('dotenv-webpack');
 const isProduction = process.env.NODE_ENV == 'production';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -26,6 +26,7 @@ const config = {
         new webpack.ProvidePlugin({
             process: 'process/browser',
         }),
+        new Dotenv()
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
     ],

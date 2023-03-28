@@ -1,13 +1,12 @@
-let address = "0x379299030b39fB95f4e6b8B80eD6cDf6fD08451F";
-let privateKey = "8dc9427a8792e4e43375a5056150d2f30061b1cc7007a7a62e12bffeac1fe9f1";
+let address = process.env.ETH_ADDRESS;
+let privateKey = process.env.ETH_PRIVKEY;
+let PROVIDER_URL = process.env.PROVIDER_URL;
 
 let GWEI = 10**9;
 let GAS_PRICE = 70*GWEI;
 
 let GAS_LIMIT = 21000;
 const Transaction = require('ethereumjs-tx');
-
-let PROVIDER_URL = "https://sepolia.infura.io/v3/d607a74fa6d047b494769f10b6d451d6";
 
 const Web3 = require('web3');
 
