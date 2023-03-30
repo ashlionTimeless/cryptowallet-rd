@@ -25,6 +25,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"  ><a class="active currency-select" data-value="ETH" href="#">ETH</a></li>
                 <li><a  class="currency-select" data-value="ERC20" href="#">ERC20</a></li>
+                <li><a  class="currency-select" data-value="BTC" href="#">BTC</a></li>
             </ul>
         </div>
     </div>
@@ -54,8 +55,8 @@
             <div id="send_container" class="row container col-xs-12">
                 <h3>Send</h3>
                 <div id="send_inputs">
-                    <input id="send_receiver" placeholder="Receiver">
-                    <input id="send_amount" placeholder="Amount">
+                    <input id="send_receiver" type="text" placeholder="Receiver">
+                    <input id="send_amount" type="number" placeholder="Amount">
                 </div>
                 <div id="send_button_container">
                     <button id="send_button" class="btn">SEND</button>

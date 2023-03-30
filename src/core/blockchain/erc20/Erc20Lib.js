@@ -1,5 +1,5 @@
 const EthLib = require('/src/core/blockchain/eth/EthLib');
-const Converter = require('/src/core/helpers/Converter');
+const Converter = require('/src/core/helpers/Erc20Converter');
 
 const ERC20_ABI = require("./erc20_abi");
 
@@ -16,7 +16,7 @@ class Erc20Lib extends EthLib{
         this.converter = new Converter()
     }
     composeContract(){
-        let contract =new this.web3.eth.Contract(ERC20_ABI,this.getContractAddress());
+        let contract =new this.provider.eth.Contract(ERC20_ABI,this.getContractAddress());
         return contract;
     }
 
@@ -34,6 +34,7 @@ class Erc20Lib extends EthLib{
         return new Promise(async(resolve,reject)=>{
             try{
                 let address = await this.getAddress();
+
                 let balance = await this.getBalance(address)
                 return resolve(balance);
             }catch (e) {
@@ -44,6 +45,7 @@ class Erc20Lib extends EthLib{
     getBalance(address){
         return new Promise(async(resolve,reject)=>{
             try{
+                this.validator.validateAddress(address);
                 let balance = await this.getContract().methods.balanceOf(address).call();
                 balance = this.toDecimals(balance);
                 return resolve(balance);

@@ -6,11 +6,11 @@ class WalletUi{
         this.app = app;
         this.renderer = new Renderer(app);
         this.listenerSetter = new ListenerSetter(app);
+        this.listenerSetter.setEventListeners();
     }
 
     prepareInterface(){
         this.renderer.renderUi();
-        this.listenerSetter.setEventListeners();
     }
 }
 
