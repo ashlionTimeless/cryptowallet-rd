@@ -62,6 +62,13 @@ class AbstractCurrencyLib{
             }
         });
     }
+
+    toDecimals(amount){
+        return this.converter.toDecimals(amount);
+    }
+    fromDecimals(amount){
+        return this.converter.fromDecimals(amount);
+    }
 }
 
 module.exports = AbstractCurrencyLib;

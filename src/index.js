@@ -3,11 +3,13 @@ const ERC20 = "ERC20";
 
 const WalletUi = require('./core/ui/WalletUi');
 const BlockchainService = require('./core/blockchain/BlockchainService');
+const HttpService = require('/src/core/services/HttpService');
 
 class Application{
 
     constructor() {
         this.setCurrency(CURRENCY);
+        this.httpService = new HttpService(this);
         this.walletUi = new WalletUi(this);
         this.blockchain = new BlockchainService(this);
     }
