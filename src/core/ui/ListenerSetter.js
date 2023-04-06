@@ -6,6 +6,7 @@ class ListenerSetter{
     setEventListeners(){
         this.setSendListener();
         this.setChangeCurrencyListener();
+        this.setMnemonicListeners();
     }
     setSendListener(){
         document.getElementById("send_button").addEventListener("click",(event)=>{
@@ -31,6 +32,27 @@ class ListenerSetter{
             })
         }
         console.log('change currency');
+    }
+
+    setMnemonicListeners(){
+        this.setGenerateMnemonicListener();
+        this.setImportMnemonicOnInputListener();
+    }
+
+    setGenerateMnemonicListener(){
+        document.getElementById("generate-mnemonic").addEventListener("click",async()=>{
+            let mnemonic = await this.app.generateMnemonic();
+            alert(mnemonic);
+        })
+    }
+
+    setImportMnemonicOnInputListener(){
+        document.getElementById("import-mnemonic").addEventListener("input",async()=>{
+            let element = event.target || event.srcElement;
+            let mnemonic = element.value;
+            console.log(mnemonic);
+            this.app.importMnemonic(mnemonic);
+        })
     }
 }
 

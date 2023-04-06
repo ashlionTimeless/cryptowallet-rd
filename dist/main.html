@@ -27,6 +27,11 @@
                 <li><a  class="currency-select" data-value="ERC20" href="#">ERC20</a></li>
                 <li><a  class="currency-select" data-value="BTC" href="#">BTC</a></li>
             </ul>
+
+            <span style="float: right;color:black">
+                <button id="generate-mnemonic">GENERATE</button>
+                <input id="import-mnemonic" name="import-mnemonic" placeholder="Import your mnemonic">
+            </span>
         </div>
     </div>
 </nav>
@@ -38,7 +43,7 @@
 
         <div id="main_container" class="row col-sm-6 text-left">
             <div id="general_container" class="row col-xs-12">
-                <h2 class="currency_symbol">ETH1</h2>
+                <h2 class="currency_symbol">ETH</h2>
                 <p class="title">Balance:</p><i id="balance_text">---</i> <i class="currency_symbol">ETH</i>
             </div>
             <!-- address : string, qr code-->
@@ -46,7 +51,7 @@
                 <h3 class="col-xs-12">Receive:</h3>
 
                 <div id="address_container" class="col-xs-6">
-                    <p class="title">Address: </p><i id="address_text">0x3792990...6cDf6fD08451F</i>
+                    <p class="title">Address: </p><i id="address_text">-</i>
                 </div>
                 <div id="qrcode" class="col-xs-6"></div>
 

@@ -1,5 +1,3 @@
-let address = process.env.ETH_ADDRESS;
-let privateKey = process.env.ETH_PRIVKEY;
 let PROVIDER_URL = process.env.PROVIDER_URL;
 
 let GWEI = 10**9;
@@ -14,33 +12,13 @@ const Validator = require('/src/core/validators/blockchain/EthValidator');
 
 const AbstractCurrencyLab = require('/src/core/blockchain/AbstractCurrencyLib')
 class EthLib extends AbstractCurrencyLab{
-    constructor() {
+    constructor(app) {
         let web3 = new Web3(new Web3.providers.HttpProvider(PROVIDER_URL));
         let converter = new EthConverter();
         let validator = new Validator();
-        super(web3,validator,converter);
+        super(app,web3,validator,converter);
 
      }
-
-    getAddress(){
-        return new Promise(async(resolve,reject)=>{
-            try{
-                return resolve(address);
-            }catch (e){
-                return reject(e);
-            }
-        })
-    }
-
-    getPrivateKey(){
-        return new Promise(async(resolve,reject)=>{
-            try{
-                return resolve(privateKey);
-            }catch (e){
-                return reject(e);
-            }
-        })
-    }
 
     getBalance(address){
         return new Promise(async(resolve,reject)=>{

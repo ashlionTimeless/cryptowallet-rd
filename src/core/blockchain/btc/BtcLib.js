@@ -21,19 +21,8 @@ class BtcLib extends AbstractCurrencyLab{
         let validator = new BtcValidator();
         let converter = new BtcConverter();
         let provider = new BlockcypherProvider(app,validator,converter);
-        super(provider,validator,converter);
+        super(app,provider,validator,converter);
     }
-
-    getAddress(){
-        return new Promise(async(resolve,reject)=>{
-            try{
-                console.log("btcLib getAddress",BTC_ADDRESS);
-                return resolve(BTC_ADDRESS);
-            }catch(e){
-                return reject(e);
-            }
-        })
-    };
 
     getBalance(address){
         return new Promise(async(resolve,reject)=>{

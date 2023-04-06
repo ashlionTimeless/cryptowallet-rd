@@ -10,8 +10,8 @@ const contractAddress =process.env.ERC20_CONTRACT_ADDRESS;
 
 class Erc20Lib extends EthLib{
 
-    constructor() {
-        super();
+    constructor(app) {
+        super(app);
         this.setContract();
         this.converter = new Converter()
     }

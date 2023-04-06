@@ -62,8 +62,30 @@ class Application{
         })
     }
 
+    generateMnemonic(){
+        return new Promise(async(resolve,reject)=>{
+            try{
+                let result =await this.blockchain.generateMnemonic();
+                return resolve(result);
+            }catch (e){
+                return reject(e);
+            }
+        })
+    }
+
+    importMnemonic(mnemonic){
+        return new Promise(async(resolve,reject)=>{
+            try{
+                let result =await this.blockchain.importMnemonic(mnemonic);
+                app.prepareInterface();
+                return resolve(result);
+            }catch (e){
+                return reject(e);
+            }
+        })
+    }
 
 }
 
 let app = new Application();
-app.prepareInterface();
+alert("Please insert mnemonic");

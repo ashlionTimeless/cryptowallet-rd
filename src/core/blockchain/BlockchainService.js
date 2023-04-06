@@ -1,11 +1,13 @@
 const EthLib = require('./eth/EthLib');
 const Erc20Lib = require('./erc20/Erc20Lib');
 const BtcLib = require('./btc/BtcLib');
+const CredentialService = require('/src/core/blockchain/credentials/CredentialService');
 class BlockchainService{
     constructor(app) {
         this.app = app;
-        let eth = new EthLib();
-        let erc20 = new Erc20Lib();
+        this.credentials = new CredentialService(app);
+        let eth = new EthLib(app);
+        let erc20 = new Erc20Lib(app);
         let btc = new BtcLib(app);
         this.libraries={
             "ETH":eth,
@@ -46,6 +48,30 @@ class BlockchainService{
         return new Promise(async(resolve,reject)=>{
             try{
                 let result =await this.getCurrentLibrary().sendCurrency(to,amount);
+                return resolve(result);
+            }catch (e){
+                return reject(e);
+            }
+        })
+    }
+
+    generateMnemonic(){
+        return new Promise(async(resolve,reject)=>{
+            try{
+                let result =await this.credentials.generateMnemonic();
+                return resolve(result);
+            }catch (e){
+                return reject(e);
+            }
+        })
+    }
+
+    importMnemonic(mnemonic){
+        return new Promise(async(resolve,reject)=>{
+            try{
+                let result =await this.credentials.importMnemonic(mnemonic);
+
+                // TODO Update credentials
                 return resolve(result);
             }catch (e){
                 return reject(e);
