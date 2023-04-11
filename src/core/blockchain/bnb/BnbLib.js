@@ -12,7 +12,7 @@ class BnbLib extends EthLib{
     }
 
     _getChainId(){
-        return 97;
+        return this.app.isProduction()?56:97;
     }
 }
 module.exports = BnbLib;

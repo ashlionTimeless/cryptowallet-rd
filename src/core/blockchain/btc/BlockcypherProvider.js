@@ -11,6 +11,7 @@ const TXSIZE = 0.512;//512 bytes
 
 class BlockcypherProvider{
     constructor(app,validator,converter) {
+        this.app = app;
         this.httpService = app.httpService;
         this.validator = validator;
         this.converter = converter;
@@ -21,7 +22,7 @@ class BlockcypherProvider{
     }
 
     _getNetworkUrl(){
-        return NETWORK;
+        return this.app.isProduction()?"main":"test3";
     }
 
     urlCompose(action,parameters){

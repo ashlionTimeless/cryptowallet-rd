@@ -49,7 +49,7 @@ class EthLib extends AbstractCurrencyLab{
     }
 
     _getChainId(){
-        return 11155111;
+        return this.app.isProduction()?1:11155111;
     }
 
     _formatTransactionParams(to,value,data=""){

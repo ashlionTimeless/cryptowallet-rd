@@ -54,7 +54,7 @@ class BtcLib extends AbstractCurrencyLib{
     }
 
     _getNetwork(){
-        return BTCNETWORK;
+        return this.app.isProduction()?networks.bitcoin:networks.testnet;
     }
 
     _createSignRawTx(txParams){

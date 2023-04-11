@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const stylesHandler = 'style-loader';
 
-
+let env_path = isProduction?`./.env`:`./.env.development`;
 
 const config = {
     entry: './src/index.js',
@@ -26,7 +26,10 @@ const config = {
         new webpack.ProvidePlugin({
             process: 'process/browser',
         }),
-        new Dotenv()
+        new Dotenv({
+            path:env_path
+        })
+
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
     ],

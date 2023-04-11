@@ -4,7 +4,7 @@ const ERC20 = "ERC20";
 const WalletUi = require('./core/ui/WalletUi');
 const BlockchainService = require('./core/blockchain/BlockchainService');
 const HttpService = require('/src/core/services/HttpService');
-
+const isProduction = require("./isProduction");
 class Application{
 
     constructor() {
@@ -83,6 +83,10 @@ class Application{
                 return reject(e);
             }
         })
+    }
+
+    isProduction(){
+        return isProduction;
     }
 
 }
