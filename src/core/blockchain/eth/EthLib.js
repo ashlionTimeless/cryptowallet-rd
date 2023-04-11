@@ -1,4 +1,4 @@
-let PROVIDER_URL = process.env.PROVIDER_URL;
+let PROVIDER_URL = process.env.ETH_PROVIDER_URL;
 
 let GWEI = 10**9;
 let GAS_PRICE = 70*GWEI;
@@ -19,6 +19,7 @@ class EthLib extends AbstractCurrencyLab{
         super(app,web3,validator,converter);
 
      }
+
 
     getBalance(address){
         return new Promise(async(resolve,reject)=>{
@@ -47,6 +48,10 @@ class EthLib extends AbstractCurrencyLab{
         });
     }
 
+    _getChainId(){
+        return 11155111;
+    }
+
     _formatTransactionParams(to,value,data=""){
         return new Promise(async(resolve,reject)=>{
             try{
@@ -69,6 +74,8 @@ class EthLib extends AbstractCurrencyLab{
                 let gasLimit = this.getGasLimit();
                 this.validator.validateNumber(gasLimit);
 
+                let chainId = this._getChainId();
+                this.validator.validateNumber(chainId);
                 value = this.fromDecimals(value);
                 let txParams = {
                     "from":from,
@@ -79,6 +86,7 @@ class EthLib extends AbstractCurrencyLab{
                     "gasLimit":gasLimit,
                     "nonce":nonce,
                     "data":data,
+                    "chainId":chainId
                 };
                 return resolve(txParams);
             }catch (e){

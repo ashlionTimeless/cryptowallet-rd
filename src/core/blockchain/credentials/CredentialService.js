@@ -2,6 +2,8 @@
 const EthWallet = require('/src/core/blockchain/credentials/protocols/EthWallet');
 const Erc20Wallet = require('/src/core/blockchain/credentials/protocols/Erc20Wallet');
 const BtcWallet = require('/src/core/blockchain/credentials/protocols/BtcWallet');
+const LtcWallet = require('/src/core/blockchain/credentials/protocols/LtcWallet');
+const BnbWallet = require('/src/core/blockchain/credentials/protocols/BnbWallet');
 const BTC = "BTC";
 const ETH = "ETH";
 const ERC20 = "ERC20";
@@ -15,11 +17,15 @@ class CredentialsService {
         let eth = new EthWallet();
         let erc20 = new Erc20Wallet();
         let btc = new BtcWallet();
+        let ltc = new LtcWallet();
+        let bnb = new BnbWallet();
         this.mnemonic = "";
         this.protocols = {
             BTC:btc,
             ETH:eth,
-            ERC20:erc20
+            ERC20:erc20,
+            LTC:ltc,
+            BNB:bnb
         }
     }
 

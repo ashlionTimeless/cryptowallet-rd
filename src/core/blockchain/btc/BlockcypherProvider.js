@@ -16,9 +16,16 @@ class BlockcypherProvider{
         this.converter = converter;
     }
 
+    _getProviderUrl(){
+        return BTCAPIPROVIDER;
+    }
+
+    _getNetworkUrl(){
+        return NETWORK;
+    }
 
     urlCompose(action,parameters){
-        let base = `${BTCAPIPROVIDER}/${NETWORK}`;
+        let base = `${this._getProviderUrl()}/${this._getNetworkUrl()}`;
         let relativeUrl=''
         switch (action){
             case BALANCE:
